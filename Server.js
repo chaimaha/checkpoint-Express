@@ -1,17 +1,19 @@
 //clear Console
-// console.clear();
+console.clear();
 //import
 import express from "express";
 import path from "path";
-import IsAuth from "./middleware/auth";
+import IsAuth from "./middleware/Auth.js";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 //instance
+
 const app = express();
+app.use(IsAuth);
 //read JSON
 app.use(express.json());
 //TIMER-----------------
-app.use(IsAuth());
+
 //----------------------------------------------------------
 //template
 app.set("view engine", "pug");

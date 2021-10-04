@@ -22,10 +22,12 @@ weekday[6] = "Saturday";
 var n = weekday[d.getDay()];
 console.log(n);
 const testDate = () => {
-  if (n !== "Saturday" && n !== "Sunday" && 9 < current.getHours() < 17)
+  if (n !== "Saturday" && n !== "Sunday" && 9 < current.getHours() < 17) {
+    console.log("true");
     return true;
-  else console.log("false");
-  return false;
+  } else {
+    return false;
+  }
 };
 // const auth = () => {
 //   if (testDate === true) console.log("ok");
@@ -33,6 +35,7 @@ const testDate = () => {
 // };
 
 const IsAuth = (req, res, next) => {
+  testDate();
   if (testDate() === true) {
     next();
   } else {
